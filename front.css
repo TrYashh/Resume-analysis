@@ -1,42 +1,47 @@
-.bg { 
-  width: 100%; 
-  height: 100vh; /* Full viewport height */ 
-  display: flex; 
-  justify-content: center; /* Centers the box horizontally */ 
-  align-items: flex-start; /* Moves box to the top */
-  padding: 0 30px; /* Adds 30px space on the left and right */
-  box-sizing: border-box; /* Ensures padding doesn’t affect width */
-  background-color: #000; /* Sets full black background */
+body {
+  background-color: black;
+  color: white;
+  margin: 0%;
+  padding: 0%;
+  display: flex;
 }
 
 .box {
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: linear-gradient(135deg, #3e1ec3, #5a00f0, #007bff);
-  color: #fff;
-  border-bottom-right-radius: 0.9em;
-  border-bottom-left-radius: 0.9em;
-  padding: 30px;
-  width: 80%;
-  max-width: 1000px;
-  height: auto; /* Allows content to define height */
-  text-align: left; /* Aligns text to the left */
+  color: white;
+  padding: 20px;
+  width: 60%;
+  max-width: none;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.text h1, h5{
+  color: white;
+  font-weight: 700;
+  align-self: flex-end;
+
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+.box nav {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Aligns items to the right */
-  justify-content: center;
-  position: relative; /* Allows absolute positioning inside the box */
-  margin-top: 0; /* No margin from top */
-}
-
-
-.box .text {
-  color: white !important;
-  background: none !important;
-}
-
-.text h1 {
-  font-size: 56px;
-  padding-top: 130px;
-  padding-right: 90px;
+  align-items: center;
+  /* Removed justify-content: space-between, defaults to flex-start */
+  padding: 10px;
 }
 
 .login {
@@ -53,10 +58,9 @@
   transition: 0.6s;
   box-shadow: 0px 0px 60px #1f4c65;
   -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
-  position: absolute; /* Positions the button relative to the box */
-  top: 10px; /* Positions the button 10px from the top */
-  right: 10px; /* Positions the button 10px from the right */
+  margin-left: auto; /* Pushes .login to the right */
 }
+
 
 .login:active {
   scale: 0.92;
@@ -68,475 +72,376 @@
   color: rgb(4, 4, 38);
 }
 
-button { 
-  font-size: 1.4em; 
-  padding: 0.6em 0.8em; 
-  border-radius: 0.5em; 
-  border: none; 
-  background-color: #000; 
-  color: #fff; 
-  cursor: pointer; 
-  box-shadow: 2px 2px 3px #000000b4; 
+
+.pro {
+  border: none;
+  width: 15em;
+  height: 5em;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #1C1A1C;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
 }
+
+.sparkle {
+  fill: #AAAAAA;
+  transition: all 800ms ease;
+}
+
+.text {
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: medium;
+}
+
+.pro:hover {
+  background: linear-gradient(0deg,#A47CF3,#683FEA);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+  0px 0px 180px 0px #9917FF;
+  transform: translateY(-2px);
+}
+
+.pro:hover .text {
+  color: white;
+}
+
+.pro:hover .sparkle {
+  fill: white;
+  transform: scale(1.2);
+} 
+
+
+
 
 .start {
-  display: inline-block;
-  position: relative;
-  padding: 3px;
-  border-radius: 0.9em;
-  margin-top: 10px; /* Adds space between text and button */
-  align-self: flex-start; /* Aligns the button to the left */
-}
-
-.start .button {
-  font-size: 1.4em;
-  padding: 0.6em 0.8em;
-  border-radius: 0.5em;
-  border: none;
-  background-color: #000;
+  background: transparent;
   color: #fff;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  padding: 20px 30px;
   cursor: pointer;
-  box-shadow: 2px 2px 3px #000000b4;
-  position: relative;
-  z-index: 1;
+  perspective: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
 }
 
 .start::before {
   content: "";
+  display: block;
   position: absolute;
-  inset: 0;
-  margin: auto;
-  border-radius: 0.9em;
-  z-index: 0;
-  background: linear-gradient(90deg, #03a9f4, #f441a5);
-  filter: blur(0);
-  transition: filter 0.4s ease;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(
+    320deg,
+    rgba(0, 140, 255, 0.678),
+    rgba(128, 0, 128, 0.308)
+  );
+  z-index: 1;
+  transition: background 3s;
 }
 
 .start:hover::before {
-  filter: blur(1.2em);
-}
-
-.start:active::before {
-  filter: blur(0.2em);
-}
-
-
-
-
-.sp {
-  position: absolute !important;
-  top: 10px !important;
-  left: 20px !important;
-}
-
-.sparkle-button {
-  --active: 0;
-  --bg: radial-gradient(
-			40% 50% at center 100%,
-			hsl(270 calc(var(--active) * 97%) 72% / var(--active)),
-			transparent
-		),
-		radial-gradient(
-			80% 100% at center 120%,
-			hsl(260 calc(var(--active) * 97%) 70% / var(--active)),
-			transparent
-		),
-		hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
-  background: var(--bg);
-  font-size: 1.2rem;
-  font-weight: 500;
-  border: 0;
-  cursor: pointer;
-  padding: 1em 1em;
-  display: flex;
-  gap: 0.25em;
-  white-space: nowrap;
-  border-radius: 100px;
-  position: relative;
-  box-shadow: 0 0 calc(var(--active) * 3em) calc(var(--active) * 1em) hsl(260 97% 61% / 0.75),
-		0 0em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset,
-		0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
-  transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
-  scale: calc(1 + (var(--active) * 0.1));
-  transition: .3s;
-}
-
-.sparkle-button:active {
-  scale: 1;
-  transition: .3s;
-}
-
-.sparkle path {
-  color: hsl(0 0% calc((var(--active, 0) * 70%) + var(--base)));
-  transform-box: fill-box;
-  transform-origin: center;
-  fill: currentColor;
-  stroke: currentColor;
-  animation-delay: calc((var(--transition) * 1.5) + (var(--delay) * 1s));
-  animation-duration: 0.6s;
-  transition: color var(--transition);
-}
-
-.sparkle-button:is(:hover, :focus-visible) path {
-  animation-name: bounce;
-}
-
-@keyframes bounce {
-  35%, 65% {
-    scale: var(--scale);
-  }
-}
-
-.sparkle path:nth-of-type(1) {
-  --scale: 0.5;
-  --delay: 0.1;
-  --base: 40%;
-}
-
-.sparkle path:nth-of-type(2) {
-  --scale: 1.5;
-  --delay: 0.2;
-  --base: 20%;
-}
-
-.sparkle path:nth-of-type(3) {
-  --scale: 2.5;
-  --delay: 0.35;
-  --base: 30%;
-}
-
-.sparkle-button:before {
-  content: "";
-  position: absolute;
-  inset: -0.2em;
-  z-index: -1;
-  border: 0.25em solid hsl(260 97% 50% / 0.5);
-  border-radius: 100px;
-  opacity: var(--active, 0);
-  transition: opacity var(--transition);
-}
-
-.spark {
-  position: absolute;
-  inset: 0;
-  border-radius: 100px;
-  rotate: 0deg;
-  overflow: hidden;
-  mask: linear-gradient(white, transparent 50%);
-  animation: flip calc(var(--spark) * 2) infinite steps(2, end);
-}
-
-@keyframes flip {
-  to {
-    rotate: 360deg;
-  }
-}
-
-.spark:before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  aspect-ratio: 1;
-  top: 0%;
-  left: 50%;
-  z-index: -1;
-  translate: -50% -15%;
-  rotate: 0;
-  transform: rotate(-90deg);
-  opacity: calc((var(--active)) + 0.4);
-  background: conic-gradient(
-		from 0deg,
-		transparent 0 340deg,
-		white 360deg
-	);
-  transition: opacity var(--transition);
-  animation: rotate var(--spark) linear infinite both;
-}
-
-.spark:after {
-  content: "";
-  position: absolute;
-  inset: var(--cut);
-  border-radius: 100px;
-}
-
-.backdrop {
-  position: absolute;
-  inset: var(--cut);
-  background: var(--bg);
-  border-radius: 100px;
-  transition: background var(--transition);
+  animation: rotate 1s;
+  transition: all 0.5s;
 }
 
 @keyframes rotate {
-  to {
-    transform: rotate(90deg);
-  }
-}
-
-@supports(selector(:has(:is(+ *)))) {
-  body:has(button:is(:hover, :focus-visible)) {
-    --active: 1;
-    --play-state: running;
+  0% {
+    transform: rotateY(180deg);
   }
 
-  .bodydrop {
-    display: none;
-  }
-}
-
-.sparkle-button:is(:hover, :focus-visible) ~ :is(.bodydrop, .particle-pen) {
-  --active: 1;
-  --play-state: runnin;
-}
-
-.sparkle-button:is(:hover, :focus-visible) {
-  --active: 1;
-  --play-state: running;
-}
-
-.sp {
-  position: relative;
-}
-
-.particle-pen {
-  position: absolute;
-  width: 200%;
-  aspect-ratio: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  /* Standard mask property */
-  mask: radial-gradient(white, transparent 65%);
-  
-  /* WebKit-specific mask property for Safari, older Chrome versions */
-  -webkit-mask: radial-gradient(white, transparent 65%);
-  
-  z-index: -1;
-  opacity: var(--active, 0);
-  transition: opacity var(--transition);
-}
-
-
-.particle {
-  fill: white;
-  width: calc(var(--size, 0.25) * 1rem);
-  aspect-ratio: 1;
-  position: absolute;
-  top: calc(var(--y) * 1%);
-  left: calc(var(--x) * 1%);
-  opacity: var(--alpha, 1);
-  animation: float-out calc(var(--duration, 1) * 1s) calc(var(--delay) * -1s) infinite linear;
-  transform-origin: var(--origin-x, 1000%) var(--origin-y, 1000%);
-  z-index: -1;
-  animation-play-state: var(--play-state, paused);
-}
-
-.particle path {
-  fill: hsl(0 0% 90%);
-  stroke: none;
-}
-
-.particle:nth-of-type(even) {
-  animation-direction: reverse;
-}
-
-@keyframes float-out {
-  to {
-    rotate: 360deg;
-  }
-}
-
-.text {
-  translate: 2% -6%;
-  letter-spacing: 0.01ch;
-  background: linear-gradient(90deg, hsl(0 0% calc((var(--active) * 100%) + 65%)), hsl(0 0% calc((var(--active) * 100%) + 26%)));
-
-  /* Standard background-clip property */
-  background-clip: text;
-
-  /* WebKit-specific background-clip for Safari, Chrome */
-  -webkit-background-clip: text;
-
-  color: transparent;
-  transition: background var(--transition);
-}
-
-
-.sparkle-button svg {
-  inline-size: 1.25em;
-  translate: -25% -5%;
-}
-
-
-
-
-
-.loader {
-  position: absolute;
-  justify-content: center;
-  align-self: flex-start;
-  left: 100px;
-  width: 200px;
-  height: 200px;
-}
-
-.eva {
-  --EVA-ROTATION-DURATION: 4s;
-  transform-style: preserve-3d;
-  animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
-}
-.head {
-  position: relative;
-  width: 6rem;
-  height: 4rem;
-  border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
-  background: linear-gradient(to right, white 45%, gray);
-}
-.eyeChamber {
-  width: 4.5rem;
-  height: 2.75rem;
-  position: relative;
-  left: 50%;
-  top: 55%;
-  border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
-  background-color: #0c203c;
-  box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
-  transform: translate(-50%, -50%);
-  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
-}
-.eye {
-  width: 1.2rem;
-  height: 1.5rem;
-  position: absolute;
-  border-radius: 50%;
-}
-.eye:first-child {
-  left: 12px;
-  top: 50%;
-  background: repeating-linear-gradient(
-    65deg,
-    #9bdaeb 0px,
-    #9bdaeb 1px,
-    white 2px
-  );
-  box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
-  transform: translate(0, -50%) rotate(-65deg);
-}
-.eye:nth-child(2) {
-  right: 12px;
-  top: 50%;
-  background: repeating-linear-gradient(
-    -65deg,
-    #9bdaeb 0px,
-    #9bdaeb 1px,
-    white 2px
-  );
-  box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
-  transform: translate(0, -50%) rotate(65deg);
-}
-.body {
-  width: 6rem;
-  height: 8rem;
-  position: relative;
-  margin-block-start: 0.25rem;
-  border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
-  background: linear-gradient(to right, white 35%, gray);
-}
-.hand {
-  position: absolute;
-  left: -1.5rem;
-  top: 0.75rem;
-  width: 2rem;
-  height: 5.5rem;
-  border-radius: 40%;
-  background: linear-gradient(to left, white 15%, gray);
-  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
-  transform: rotateY(55deg) rotateZ(10deg);
-}
-.hand:first-child {
-  animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite
-    alternate;
-}
-.hand:nth-child(2) {
-  left: 92%;
-  background: linear-gradient(to right, white 15%, gray);
-  transform: rotateY(55deg) rotateZ(-10deg);
-  animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear
-    infinite alternate;
-}
-.scannerThing {
-  width: 0;
-  height: 0;
-  position: absolute;
-  left: 60%;
-  top: 10%;
-  border-top: 180px solid #9bdaeb;
-  border-left: 250px solid transparent;
-  border-right: 250px solid transparent;
-  transform-origin: top left;
-  mask: linear-gradient(to right, white, transparent 35%);
-  animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
-}
-.scannerOrigin {
-  position: absolute;
-  width: 8px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  left: 60%;
-  top: 10%;
-  background: #9bdaeb;
-  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
-  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
-}
-@keyframes rotateRight {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(25deg);
-  }
-}
-@keyframes moveRight {
-  from {
-    transform: translate(-50%, -50%);
-  }
-  to {
-    transform: translate(-40%, -50%);
-  }
-}
-@keyframes compensateRotation {
-  from {
-    transform: rotateY(55deg) rotateZ(10deg);
-  }
-  to {
-    transform: rotatey(30deg) rotateZ(10deg);
-  }
-}
-@keyframes compensateRotationRight {
-  from {
-    transform: rotateY(55deg) rotateZ(-10deg);
-  }
-  to {
-    transform: rotateY(70deg) rotateZ(-10deg);
-  }
-}
-@keyframes glow {
-  from {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  45% {
-    transform: rotate(-25deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
   100% {
-    opacity: 0;
+    transform: rotateY(360deg);
   }
 }
+
+
+/* From Uiverse.io by Nawsome */ 
+.wheel-and-hamster {
+  --dur: 1s;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  width: 20em; /* Increased size */
+  height: 20em; /* Increased size */
+  font-size: 14px;
+  transform: translateY(-50%);
+  z-index: 3; /* Ensure it is in front of other elements */
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+        0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+        0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+        linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-30deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
