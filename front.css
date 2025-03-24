@@ -3,15 +3,13 @@ body {
   color: white;
   margin: 0%;
   padding: 0%;
-  display: flex;
 }
 
 .box {
   opacity: 1;
-  position: absolute;
-  top: 0;
   left: 50%;
   transform: translateX(-50%);
+  position: relative;
   background: linear-gradient(135deg, #3e1ec3, #5a00f0, #007bff);
   color: white;
   padding: 20px;
@@ -19,6 +17,36 @@ body {
   max-width: none;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  margin-bottom: 30px; /* Added margin to create space between .box and .box2 */
+}
+
+.box2 {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 60%; /* Match width of .box */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Added flex container for cards */
+.box2-container {
+  display: flex;
+  justify-content: space-around; /* Distribute cards evenly */
+  align-items: center; /* Vertically align items */
+}
+
+.box2 button {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px; /* Add spacing between buttons */
 }
 
 .text h1, h5{
@@ -203,7 +231,7 @@ h5 {
 
 .hamster {
   animation: hamster var(--dur) ease-in-out infinite;
-  top: 50%;
+  top: 70%;
   left: calc(50% - 3.5em);
   width: 7em;
   height: 3.75em;
@@ -444,4 +472,6 @@ h5 {
     transform: rotate(-1turn);
   }
 }
+
+
 
