@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="image/x-icon" href="icon.png">
+  <style>
+    :root {
+      --background-image: url("{% static 'img/bg.png' %}");
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper" id="wrapper">
+    <div class="form-box login" id="loginForm">
+      <form action="#">
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required>
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox">Remember Me</label>
+          <a href="#">Forgot Password</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="register-link">
+          <p>Dont have an account? <a href="#" id="registerBtn">Register</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-box register" id="registerForm">
+      <form action="#">
+        <h1>Register</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required>
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Email" required>
+          <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox">I agree to the terms & conditions</label>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <div class="register-link">
+          <p>Already have an account? <a href="#" id="loginBtn">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

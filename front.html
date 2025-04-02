@@ -3,54 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Resume Analysis</title>
-        <link rel="stylesheet" href="front.css">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/front.css' %}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="box">
-            <nav>
-                <button class="pro">
-                    <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
-                        <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
-                    </svg>
-                    <span class="text">Unlock Premium</span>
-                </button>
-                <button class="login">Login in</button>
-            </nav>
-
-            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
-                <div class="wheel"></div>
-                <div class="hamster">
-                    <div class="hamster__body">
-                        <div class="hamster__head">
-                            <div class="hamster__ear"></div>
-                            <div class="hamster__eye"></div>
-                            <div class="hamster__nose"></div>
-                        </div>
-                        <div class="hamster__limb hamster__limb--fr"></div>
-                        <div class="hamster__limb hamster__limb--fl"></div>
-                        <div class="hamster__limb hamster__limb--br"></div>
-                        <div class="hamster__limb hamster__limb--bl"></div>
-                        <div class="hamster__tail"></div>
-                    </div>
-                </div>
-                <div class="spoke"></div>
-            </div>
-            
-            <div class="content"> <!-- Changed from .text -->
-                <h1><b>Analyze Your Resume <br>with AI-Powered<br> Insights</b></h1>
-                <h5>Optimize your resume, get ATS-ready, and land your <br>dream job faster.</h5>
-            </div>
-            <button class="start">Get Started</button>
-        </div>
-        
-        <div class="box2">
-            card
-        </div>
-        <div class="box2">
-            card
-        </div>
-        <div class="box2">
-            card
-        </div>
+        <!-- ...existing code... -->
     </body>
+    <script src="{% static 'js/front.js' %}"></script>
 </html>
