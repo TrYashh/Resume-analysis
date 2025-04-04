@@ -7,25 +7,35 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="icon" type="image/x-icon" href="icon.png">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}">
   <style>
     :root {
-      --background-image: url("{% static 'img/bg.png' %}");
+      --background-image: url("{% static 'images/bg.png' %}");
     }
   </style>
 </head>
 <body>
   <div class="wrapper" id="wrapper">
+    
+    <!-- LOGIN FORM -->
     <div class="form-box login" id="loginForm">
-      <form action="#">
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
         <h1>Login</h1>
+        
+        {% if messages %}
+          {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        
         <div class="input-box">
-          <input type="text" placeholder="Username" required>
+          <input type="text" name="username" placeholder="Username" required>
           <i class='bx bxs-user'></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Password" required>
-          <i class='bx bxs-lock-alt' ></i>
+          <input type="password" name="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt'></i>
         </div>
         <div class="remember-forgot">
           <label><input type="checkbox">Remember Me</label>
@@ -33,25 +43,31 @@
         </div>
         <button type="submit" class="btn">Login</button>
         <div class="register-link">
-          <p>Dont have an account? <a href="#" id="registerBtn">Register</a></p>
+          <p>Don't have an account? <a href="#" id="registerBtn">Register</a></p>
         </div>
       </form>
     </div>
 
+    <!-- REGISTER FORM -->
     <div class="form-box register" id="registerForm">
-      <form action="#">
+      <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
         <h1>Register</h1>
         <div class="input-box">
-          <input type="text" placeholder="Username" required>
+          <input type="text" name="username" placeholder="Username" required>
           <i class='bx bxs-user'></i>
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Email" required>
+          <input type="email" name="email" placeholder="Email" required>
           <i class='bx bxs-envelope'></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Password" required>
-          <i class='bx bxs-lock-alt' ></i>
+          <input type="password" name="password1" placeholder="Password" required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password2" placeholder="Confirm Password" required>
+          <i class='bx bxs-lock-alt'></i>
         </div>
         <div class="remember-forgot">
           <label><input type="checkbox">I agree to the terms & conditions</label>

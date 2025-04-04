@@ -9,9 +9,9 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("../img/bg.png") no-repeat;
+    background: url("../images/bg.png") no-repeat center center fixed; /* Corrected relative path */
     background-size: cover;
-    background-position: center;
+    animation: fadeIn 0.5s ease-in-out 0.2s; /* Reduced duration and added delay */
   }
   .wrapper{
     width: 420px; /* Initial width for Login form */
@@ -28,7 +28,9 @@
   }
   .wrapper.active {
     width: 480px; /* Updated width for Register form */
-    height: 480px; /* Shorten the height */
+    height: auto; /* Allow height to adjust based on content */
+    min-height: 480px; /* Ensure a minimum height */
+    padding-bottom: 20px; /* Add padding at the bottom for spacing */
   }
   .wrapper h1{
     font-size: 36px;
@@ -136,8 +138,33 @@
   left: 0;
   transform: translateX(-480px);
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the start */
 }
 .wrapper.active .form-box.register{
   transform: translateX(0);
   opacity: 1;
+}
+
+/* Add styles for the register form to ensure proper spacing */
+.form-box.register .input-box {
+    margin: 15px 0; /* Reduce spacing between input fields */
+}
+
+.form-box.register .remember-forgot {
+    margin: 5px 0 15px; /* Adjust spacing for the checkbox and terms */
+}
+
+.form-box.register .btn {
+    margin-top: 5px; /* Reduce spacing above the register button */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

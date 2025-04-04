@@ -4,6 +4,7 @@ function validateFileSize(input) {
     if (file && file.size > 10 * 1024 * 1024) { // 10 MB in bytes
         alert("File size exceeds 10 MB. Please upload a smaller file.");
         input.value = ""; // Clear the input
+        updateFileName(input); // Reset the displayed file name
     }
 }
 

@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'  # Make sure this has a trailing slash
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'analyzer', 'static'),  # Corrected path
+    os.path.join(BASE_DIR, 'server', 'analyzer', 'static'),  # Ensure this path exists
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-f-a!snb4e*b4i+uw+9(_nh6pi-y5#w3)fj2&^@#^e4i$u0da%&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']  # Add appropriate hosts for production
 
 
 # Application definition
@@ -43,7 +43,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],  # Make sure it points to your templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,3 +116,6 @@ import os
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+LOGIN_REDIRECT_URL = '/'  # Redirect after successful login
+LOGOUT_REDIRECT_URL = '/login'  # Redirect after logout
